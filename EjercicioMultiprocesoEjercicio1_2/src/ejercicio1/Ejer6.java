@@ -8,9 +8,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Ejer6 {
-    private static String RUTA_BAT = "c:\\Trastero\\file.bat";
-    private static String RUTA_SALIDA = "c:\\Trastero\\salida.txt";
-    private static String RUTA_ERRORES = "c:\\Trastero\\errores.txt";
+    private static String RUTA_BAT = "file.bat";
+    private static String RUTA_SALIDA = "salida.txt";
+    private static String RUTA_ERRORES = "errores.txt";
     
     public static void main(String[] args) {
         try {
