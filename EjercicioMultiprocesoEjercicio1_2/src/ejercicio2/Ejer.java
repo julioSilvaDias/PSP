@@ -19,17 +19,17 @@ import javax.swing.JTextPane;
 public class Ejer extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JLabel lblNewLabel;
-	private JLabel lblNewLabel_1;
-	private JLabel lblNewLabel_2;
-	private JLabel lblNewLabel_3;
-	private JLabel lblNewLabel_4;
-	private JLabel lblNewLabel_5;
-	private JTextPane textPane;
-	private JTextPane textPane_1;
+	private JTextField textFieldEjecutarAplicacion;
+	private JTextField textFieldEjecutarCmd;
+	private JTextField textFieldLlamarPrograma;
+	private JLabel lblPid1;
+	private JLabel lblPid2;
+	private JLabel lblPid3;
+	private JLabel lblPidPadre1;
+	private JLabel lblPidPadre2;
+	private JLabel lblPidPadre3;
+	private JTextPane textPaneResultadoCmd;
+	private JTextPane salidaPrograma;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -58,9 +58,9 @@ public class Ejer extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(null);
 
-		JLabel lblPID = new JLabel("PID");
-		lblPID.setBounds(34, 228, 73, 23);
-		panel.add(lblPID);
+		JLabel lblPid = new JLabel("PID");
+		lblPid.setBounds(34, 228, 73, 23);
+		panel.add(lblPid);
 
 		JLabel lblPidPadre = new JLabel("PID Padre");
 		lblPidPadre.setBounds(34, 262, 73, 23);
@@ -70,149 +70,129 @@ public class Ejer extends JFrame {
 		lblResultado.setBounds(34, 306, 73, 23);
 		panel.add(lblResultado);
 
-		lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(153, 232, 64, 19);
-		panel.add(lblNewLabel);
+		lblPid1 = new JLabel("");
+		lblPid1.setBounds(153, 232, 64, 19);
+		panel.add(lblPid1);
 
-		lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setBounds(340, 232, 70, 19);
-		panel.add(lblNewLabel_1);
+		lblPid2 = new JLabel("");
+		lblPid2.setBounds(340, 232, 70, 19);
+		panel.add(lblPid2);
 
-		lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setBounds(539, 228, 189, 18);
-		panel.add(lblNewLabel_2);
+		lblPid3 = new JLabel("");
+		lblPid3.setBounds(539, 228, 189, 18);
+		panel.add(lblPid3);
 
-		lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setBounds(153, 266, 64, 19);
-		panel.add(lblNewLabel_3);
+		lblPidPadre1 = new JLabel("");
+		lblPidPadre1.setBounds(153, 266, 64, 19);
+		panel.add(lblPidPadre1);
 
-		lblNewLabel_4 = new JLabel("");
-		lblNewLabel_4.setBounds(340, 266, 70, 14);
-		panel.add(lblNewLabel_4);
+		lblPidPadre2 = new JLabel("");
+		lblPidPadre2.setBounds(340, 266, 70, 14);
+		panel.add(lblPidPadre2);
 
-		lblNewLabel_5 = new JLabel("");
-		lblNewLabel_5.setBounds(539, 262, 189, 18);
-		panel.add(lblNewLabel_5);
+		lblPidPadre3 = new JLabel("");
+		lblPidPadre3.setBounds(539, 262, 189, 18);
+		panel.add(lblPidPadre3);
 
-		textField = new JTextField();
-		textField.setBorder(null);
-		textField.setBounds(108, 108, 131, 36);
-		panel.add(textField);
-		textField.setColumns(10);
+		textFieldEjecutarAplicacion = new JTextField();
+		textFieldEjecutarAplicacion.setBorder(null);
+		textFieldEjecutarAplicacion.setBounds(108, 108, 131, 36);
+		panel.add(textFieldEjecutarAplicacion);
+		textFieldEjecutarAplicacion.setColumns(10);
 
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(300, 108, 131, 36);
-		panel.add(textField_1);
+		textFieldEjecutarCmd = new JTextField();
+		textFieldEjecutarCmd.setColumns(10);
+		textFieldEjecutarCmd.setBounds(300, 108, 131, 36);
+		panel.add(textFieldEjecutarCmd);
 
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(517, 108, 131, 36);
-		panel.add(textField_2);
+		textFieldLlamarPrograma = new JTextField();
+		textFieldLlamarPrograma.setColumns(10);
+		textFieldLlamarPrograma.setBounds(517, 108, 131, 36);
+		panel.add(textFieldLlamarPrograma);
 
-		textPane = new JTextPane();
-		textPane.setBounds(258, 306, 205, 274);
-		panel.add(textPane);
+		textPaneResultadoCmd = new JTextPane();
+		textPaneResultadoCmd.setBounds(258, 306, 205, 274);
+		panel.add(textPaneResultadoCmd);
 
-		textPane_1 = new JTextPane();
-		textPane_1.setBounds(483, 306, 205, 274);
-		panel.add(textPane_1);
+		salidaPrograma = new JTextPane();
+		salidaPrograma.setBounds(483, 306, 205, 274);
+		panel.add(salidaPrograma);
 
-		JButton btnNewButton = new JButton("Start");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton startButtonEjecutarAplicacion = new JButton("Start");
+		startButtonEjecutarAplicacion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				start1();
+				ejecutarAplicacionSistema();
 			}
 		});
-		btnNewButton.setBounds(128, 176, 89, 23);
-		panel.add(btnNewButton);
+		startButtonEjecutarAplicacion.setBounds(128, 176, 89, 23);
+		panel.add(startButtonEjecutarAplicacion);
 
-		JButton btnNewButton_1 = new JButton("Start");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton startButtonEjecutarCmd = new JButton("Start");
+		startButtonEjecutarCmd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				start2();
+				ejecutarComandoCmd();
 			}
 
 		});
-		btnNewButton_1.setBounds(321, 176, 89, 23);
-		panel.add(btnNewButton_1);
+		startButtonEjecutarCmd.setBounds(321, 176, 89, 23);
+		panel.add(startButtonEjecutarCmd);
 
-		JButton btnNewButton_2 = new JButton("Start");
-		btnNewButton_2.addActionListener(new ActionListener() {
+		JButton btnLlamarPrograma = new JButton("Start");
+		btnLlamarPrograma.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				start3();
+				llamarPrograma5Veces();
 			}
 		});
-		btnNewButton_2.setBounds(539, 176, 89, 23);
-		panel.add(btnNewButton_2);
+		btnLlamarPrograma.setBounds(539, 176, 89, 23);
+		panel.add(btnLlamarPrograma);
 
 	}
 
-	private void start1() {
-		ProcessBuilder processBuilder = new ProcessBuilder(textField.getText());
+	private void ejecutarComandoCmd() {
+		ProcessBuilder processBuilder = new ProcessBuilder(textFieldEjecutarCmd.getText());
 		try {
-			Process proceso = processBuilder.start();
+			Process process = processBuilder.start();
 
-			lblNewLabel.setText("" + proceso.pid());
+			lblPid2.setText("" + process.pid());
 
-			ProcessHandle procesoPadre = ProcessHandle.current().parent().orElse(null);
+			ProcessHandle processHandle = ProcessHandle.current().parent().orElse(null);
 
-			if (procesoPadre != null) {
-				lblNewLabel_3.setText("" + procesoPadre.pid());
+			if (processHandle != null) {
+				lblPidPadre2.setText("" + processHandle.pid());
 			} else {
-				JOptionPane.showMessageDialog(null, "No hay pid del proceso padre", "Error", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "No hay PID del proccesHandle", "Error", JOptionPane.ERROR_MESSAGE);
 			}
 
-		} catch (IOException e1) {
-			JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
-		}
-	}
-
-	private void start2() {
-		ProcessBuilder processBuilder = new ProcessBuilder(textField_1.getText());
-		try {
-			Process proceso = processBuilder.start();
-
-			lblNewLabel_1.setText("" + proceso.pid());
-
-			ProcessHandle procesoPadre = ProcessHandle.current().parent().orElse(null);
-
-			if (procesoPadre != null) {
-				lblNewLabel_4.setText("" + procesoPadre.pid());
-			} else {
-				JOptionPane.showMessageDialog(null, "No hay pid del proceso padre", "Error", JOptionPane.ERROR_MESSAGE);
-			}
-
-			BufferedReader reader = new BufferedReader(new InputStreamReader(proceso.getInputStream()));
+			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 
 			String resultado = "";
 			String line;
-			while ((line = reader.readLine()) != null) {
+			while ((line = bufferedReader.readLine()) != null) {
 				resultado += line + "\n";
 			}
-			reader.close();
+			bufferedReader.close();
 
-			textPane.setText(resultado);
+			textPaneResultadoCmd.setText(resultado);
 
-		} catch (IOException e1) {
-			JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
+		} catch (IOException ioException) {
+			JOptionPane.showMessageDialog(null, "IOException", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
-	private void start3() {
-		ProcessBuilder processBuilder = new ProcessBuilder(textField_2.getText());
+	private void ejecutarAplicacionSistema() {
+		ProcessBuilder processBuilder = new ProcessBuilder(textFieldEjecutarAplicacion.getText());
 		try {
 			Process proceso = processBuilder.start();
 
-			lblNewLabel_2.setText("" + proceso.pid());
+			lblPid1.setText("" + proceso.pid());
 
 			ProcessHandle procesoPadre = ProcessHandle.current().parent().orElse(null);
 
 			if (procesoPadre != null) {
-				lblNewLabel_5.setText("" + procesoPadre.pid());
+				lblPidPadre1.setText("" + procesoPadre.pid());
 			} else {
 				JOptionPane.showMessageDialog(null, "No hay pid del proceso padre", "Error", JOptionPane.ERROR_MESSAGE);
 			}
@@ -222,4 +202,42 @@ public class Ejer extends JFrame {
 		}
 	}
 
+	private void llamarPrograma5Veces() {
+		String programa = textFieldLlamarPrograma.getText();
+		salidaPrograma.setText("");
+
+		for (int i = 0; i < 5; i++) {
+			ejecutarPrograma(programa);
+		}
+	}
+
+	private void ejecutarPrograma(String programa) {
+		if (programa == null || programa.isEmpty()) {
+			JOptionPane.showMessageDialog(null, "El nombre del programa no puede estar vacío.", "Error",
+					JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+
+		ProcessBuilder processBuilder = new ProcessBuilder("java", "-cp", "src", "ejercicio2." + programa, "prueba");
+		processBuilder.redirectErrorStream(true);
+
+		try {
+			Process proceso = processBuilder.start();
+			lblPid3.setText(lblPid3.getText() + "PID: " + proceso.pid() + "\n");
+
+			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(proceso.getInputStream()));
+			StringBuilder salida = new StringBuilder();
+			String linea;
+
+			while ((linea = bufferedReader.readLine()) != null) {
+				salida.append(linea).append("\n");
+			}
+
+			salidaPrograma.setText(salidaPrograma.getText() + salida.toString());
+			proceso.waitFor();
+		} catch (IOException | InterruptedException e) {
+			JOptionPane.showMessageDialog(null, "Error ejecutando el programa: " + e.getMessage(), "Error",
+					JOptionPane.ERROR_MESSAGE);
+		}
+	}
 }
