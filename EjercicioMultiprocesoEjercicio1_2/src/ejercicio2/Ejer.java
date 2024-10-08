@@ -218,7 +218,7 @@ public class Ejer extends JFrame {
 			return;
 		}
 
-		ProcessBuilder processBuilder = new ProcessBuilder("java", "-cp", "src", "ejercicio2." + programa, "prueba");
+		ProcessBuilder processBuilder = new ProcessBuilder("java", "-cp", "src", "ejercicio2.Prueba", programa);
 		processBuilder.redirectErrorStream(true);
 
 		try {
