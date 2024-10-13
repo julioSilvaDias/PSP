@@ -10,7 +10,7 @@ public class HiloCaballo extends Thread {
 	public JProgressBar barraDeProgreso = null;
 	private String caballo = null;
 	public JLabel ganador = null;
-	private Boolean hayGanador = false;
+	private static Boolean hayGanador = false;
 
 	public HiloCaballo(JProgressBar barra, String caballo, JLabel ganador) {
 		this.barraDeProgreso = barra;
@@ -19,7 +19,7 @@ public class HiloCaballo extends Thread {
 	}
 
 	public void run() {
-		
+
 		int intAletorio = 0;
 
 		while (barraDeProgreso.getValue() < 100 && !hayGanador) {
@@ -28,9 +28,9 @@ public class HiloCaballo extends Thread {
 			barraDeProgreso.setValue(intAletorio);
 
 			if (barraDeProgreso.getValue() == 100) {
-				hayGanador = true;
+
 				terminar();
-				
+
 			}
 
 			try {
@@ -44,14 +44,9 @@ public class HiloCaballo extends Thread {
 	}
 
 	public void terminar() {
+		ganador.setText("ganador: " + caballo);
+		hayGanador = true;
 
-		try {
-			ganador.setText("ganador: " + caballo);
-			//interrupt();
-			sleep(0);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 	}
 
 }
